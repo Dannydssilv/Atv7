@@ -1,48 +1,106 @@
+/* --- Regras CSS Gerais (Aplicam-se a todas as páginas por padrão) --- */
 body {
     font-family: 'Arial', sans-serif;
     text-align: center;
-    background-color: #fff0f5;
-    color: #333;
-    margin: 40px;
+    background-color: #f2f2f2; /* Cinza claro como fundo padrão */
+    color: #333; /* Cinza escuro para texto padrão */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
 }
 
 header {
-    background-color: pink ;
-    color: white;
-    padding: 20px;
-    border-radius: 20px;
+    background-color: #222; /* Preto escuro para o cabeçalho padrão */
+    color: #fff; /* Texto branco no cabeçalho padrão */
+    padding: 20px 0;
+    border-bottom: 5px solid #555; /* Borda cinza escura no cabeçalho padrão */
+    border-radius: 0;
 }
 
 .logo {
     width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav li {
-    display: inline;
     margin: 0 15px;
 }
 
 nav a {
-    color: white;
+    color: #fff; /* Links da navegação em branco padrão */
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 nav a:hover {
-    color: #ff69b4;
+    color: #bbb; /* Cinza mais claro no hover padrão */
 }
 
 main {
-    margin-top: 30px;
+    margin: 30px auto;
+    max-width: 1200px;
+    padding: 0 20px;
     font-family: 'Verdana', sans-serif;
 }
 
-.ag7 {
+h2 {
+    color: #444; /* Cinza médio para títulos de seção padrão */
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.produto {
+    background-color: #fff; /* Fundo branco para produtos padrão */
+    padding: 20px;
+    margin: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 300px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.produto img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.produto h3 {
+    color: #222; /* Preto para título do produto padrão */
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.produto p {
+    color: #666; /* Cinza médio para texto do produto padrão */
+    font-size: 0.9em;
+}
+
+.produto strong {
+    color: #000; /* Preto para preço padrão */
+    font-size: 1.2em;
+}
+
+.ag7 { /* Mantida a regra específica para .ag7 se ela tiver um estilo único que não é parte dos produtos gerais */
     background-color: white;
     padding: 20px;
     margin: 15px auto;
@@ -60,7 +118,166 @@ main {
 }
 
 footer {
-    margin-top: 30px;
-    font-size: 0.9em;
-    color: #666;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #333; /* Cinza escuro para rodapé padrão */
+    color: #fff; /* Texto branco no rodapé padrão */
+    font-size: 0.8em;
+}
+
+---
+
+/* --- Classes de Tema Específicas (Cada uma para uma página) --- */
+
+/* Tema para ag1.html: Azul Acinzentado, Azul e Preto */
+.theme-blue-gray-black body {
+    background-color: #6b8091; /* Azul acinzentado bem claro para o fundo */
+    color: #3f51b5; /* Azul primário para o texto principal */
+}
+
+.theme-blue-gray-black header {
+    background-color: #212121; /* Preto para o cabeçalho */
+    color: #ffffff; /* Texto branco no cabeçalho */
+    border-bottom: 5px solid #424242; /* Um cinza escuro para a borda do cabeçalho */
+    border-radius: 0;
+}
+
+.theme-blue-gray-black h1 {
+    color: #ffffff; /* Título principal em branco para contrastar com o cabeçalho preto */
+}
+
+.theme-blue-gray-black nav a {
+    color: #90caf9; /* Azul claro para os links da navegação */
+}
+
+.theme-blue-gray-black nav a:hover {
+    color: #ffffff; /* Branco no hover dos links para destaque */
+}
+
+.theme-blue-gray-black main h2 {
+    color: #1a237e; /* Azul mais escuro para os títulos de seção */
+}
+
+.theme-blue-gray-black .produto {
+    background-color: #ffffff; /* Fundo branco para os cards de produto */
+    border: 1px solid #7495a5; /* Borda azul acinzentada clara para os cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra um pouco mais forte */
+}
+
+.theme-blue-gray-black .produto h3 {
+    color: #1a237e; /* Azul escuro para o título do produto */
+}
+
+.theme-blue-gray-black .produto p {
+    color: #424242; /* Cinza escuro para o texto do produto */
+}
+
+.theme-blue-gray-black .produto strong {
+    color: #000000; /* Preço em preto para forte destaque */
+}
+
+.theme-blue-gray-black footer {
+    background-color: #263238; /* Azul acinzentado escuro para o rodapé */
+    color: #eceff1; /* Texto quase branco no rodapé */
+}
+
+---
+
+/* Tema para ag2.html: Branco, Preto e Cinza */
+.theme-light-bw body {
+    background-color: #ffffff; /* Fundo branco para a maior parte */
+    color: #333333; /* Texto principal em cinza escuro */
+}
+
+.theme-light-bw header {
+    background-color: #f8f8f8; /* Um cinza bem clarinho para o cabeçalho */
+    color: #333333; /* Texto do cabeçalho em cinza escuro */
+    border-bottom: 2px solid #dddddd; /* Linha sutil para separar o cabeçalho */
+    border-radius: 0;
+}
+
+.theme-light-bw h1 {
+    color: #222222; /* Título principal em preto */
+}
+
+.theme-light-bw nav a {
+    color: #555555; /* Links da navegação em cinza */
+}
+
+.theme-light-bw nav a:hover {
+    color: #000000; /* Preto no hover dos links para destaque */
+}
+
+.theme-light-bw main h2 {
+    color: #444444; /* Títulos de seção em cinza médio */
+}
+
+.theme-light-bw .produto {
+    background-color: #ffffff; /* Fundo branco para os cards de produto */
+    border: 1px solid #eeeeee; /* Borda bem clara para os cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra mais suave */
+}
+
+.theme-light-bw .produto h3 {
+    color: #222222; /* Título do produto em preto */
+}
+
+.theme-light-bw .produto p {
+    color: #666666; /* Texto do produto em cinza */
+}
+
+.theme-light-bw .produto strong {
+    color: #000000; /* Preço em preto para destaque */
+}
+
+.theme-light-bw footer {
+    background-color: #333333; /* Rodapé em cinza escuro */
+    color: #ffffff; /* Texto do rodapé em branco */
+}
+
+/* Adicione mais classes de tema aqui para as outras páginas (ag3, ag4, ag5, ag6, ag7, index) */
+/* Exemplo de um novo tema (você pode criar 5 mais para completar as 8 páginas) */
+.theme-warm-pink body {
+    background-color: #ffe0f0; /* Rosa clarinho */
+    color: #880e4f; /* Rosa escuro */
+}
+
+.theme-warm-pink header {
+    background-color: #ec407a; /* Rosa vibrante */
+    color: #ffffff;
+}
+
+.theme-warm-pink nav a {
+    color: #fce4ec;
+}
+
+.theme-warm-pink nav a:hover {
+    color: #e91e63;
+}
+
+.theme-warm-pink main h2 {
+    color: #ad1457;
+}
+
+.theme-warm-pink .produto {
+    background-color: #ffffff;
+    border: 1px solid #f8bbd0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.theme-warm-pink .produto h3 {
+    color: #d81b60;
+}
+
+.theme-warm-pink .produto p {
+    color: #c2185b;
+}
+
+.theme-warm-pink .produto strong {
+    color: #880e4f;
+}
+
+.theme-warm-pink footer {
+    background-color: #c2185b;
+    color: #fce4ec;
 }
