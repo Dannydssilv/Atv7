@@ -1,32 +1,69 @@
-/* --- Regras CSS Gerais (Aplicam-se a todas as páginas por padrão) --- */
+/* Importação de fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+/* Estilos Padrão (Tema 1: Clássico Neutro) */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif; /* Fonte padrão 1 */
     text-align: center;
-    background-color: #f2f2f2; /* Cinza claro como fundo padrão */
+    background-color: #f0f2f5; /* Cinza claro suave */
     color: #333; /* Cinza escuro para texto padrão */
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Transição suave para mudança de tema */
+}
+
+/* Centraliza o conteúdo principal e adiciona margens */
+#container-principal {
+    max-width: 1200px;
+    margin: 30px auto; /* Centraliza horizontalmente e adiciona margens superior/inferior */
+    padding: 0 20px;
+    box-sizing: border-box; /* Garante que padding não aumente a largura total */
 }
 
 header {
-    background-color: #222; /* Preto escuro para o cabeçalho padrão */
-    color: #fff; /* Texto branco no cabeçalho padrão */
+    background-color: #2c3e50; /* Azul escuro quase preto */
+    color: #fff; /* Texto branco */
     padding: 20px 0;
-    border-bottom: 5px solid #555; /* Borda cinza escura no cabeçalho padrão */
-    border-radius: 0;
+    border-bottom: 5px solid #34495e; /* Borda azul mais escura */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra mais evidente */
+    transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.3s ease;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra mais intensa no hover */
 }
 
 .logo {
-    width: 100px;
-    height: 100px;
+    width: 90px; /* Tamanho adequado para o logo */
+    height: 90px;
     border-radius: 50%;
     margin-bottom: 10px;
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    /* Animação de rotação removida daqui */
+    transition: transform 0.3s ease-in-out; /* Mantém a transição para o hover */
 }
 
+.logo:hover {
+    transform: scale(1.1) rotate(5deg); /* Zoom e leve rotação no hover */
+}
+
+/* A keyframes rotateLogo foi removida, pois não é mais utilizada */
+
 h1 {
+    font-family: 'Montserrat', sans-serif; /* Fonte 2 para títulos */
     margin: 0;
-    font-size: 2.5em;
+    font-size: 2.8em;
+    color: #ecf0f1; /* Branco suave para h1 */
+    transition: color 0.5s ease, transform 0.3s ease;
+}
+
+h1:hover {
+    transform: scale(1.05); /* Leve zoom no título principal */
+    color: #fff;
 }
 
 nav ul {
@@ -35,249 +72,279 @@ nav ul {
     margin: 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 nav li {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav a {
-    color: #fff; /* Links da navegação em branco padrão */
+    color: #ecf0f1; /* Links da navegação em branco suave */
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
+    font-size: 1.1em;
+    transition: color 0.3s ease, transform 0.2s ease-out;
 }
 
 nav a:hover {
-    color: #bbb; /* Cinza mais claro no hover padrão */
-}
-
-main {
-    margin: 30px auto;
-    max-width: 1200px;
-    padding: 0 20px;
-    font-family: 'Verdana', sans-serif;
+    color: #a2d2ff; /* Azul claro no hover */
+    transform: translateY(-4px) scale(1.02); /* Levanta e cresce um pouco */
 }
 
 h2 {
-    color: #444; /* Cinza médio para títulos de seção padrão */
+    font-family: 'Montserrat', sans-serif; /* Fonte 2 para h2 */
+    color: #2c3e50; /* Azul escuro */
     margin-bottom: 30px;
-    font-size: 2em;
+    font-size: 2.2em;
+    transition: color 0.5s ease;
+    animation: fadeInSlideIn 1s ease-out;
+}
+
+@keyframes fadeInSlideIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo de grid */
+    gap: 30px; /* Espaçamento entre os produtos */
+    justify-content: center;
+    margin-top: 40px;
 }
 
 .produto {
-    background-color: #fff; /* Fundo branco para produtos padrão */
-    padding: 20px;
-    margin: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 300px;
-    display: inline-block;
-    vertical-align: top;
+    background-color: #fff; /* Fundo branco para produtos */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    transition: background-color 0.5s ease, border-color 0.5s ease, box-shadow 0.4s ease, transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInProduct 0.6s ease-out forwards;
+    will-change: transform, box-shadow; /* Otimização para animação */
+}
+
+.produto:hover {
+    transform: translateY(-8px) scale(1.03); /* Levanta e aumenta mais no hover */
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2); /* Sombra mais profunda */
+}
+
+@keyframes fadeInProduct {
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .produto img {
-    width: 100%;
+    width: 100%; /* Largura da imagem do produto */
+    max-width: 250px; /* Limita a largura máxima da imagem */
     height: auto;
-    border-radius: 4px;
+    border-radius: 8px;
     margin-bottom: 15px;
+    object-fit: cover; /* Garante que a imagem não distorça */
+    transition: transform 0.3s ease;
+}
+
+.produto img:hover {
+    transform: scale(1.05) rotate(-1deg); /* Leve zoom e rotação na imagem do produto */
 }
 
 .produto h3 {
-    color: #222; /* Preto para título do produto padrão */
+    font-family: 'Open Sans', sans-serif; /* Fonte 3 para subtítulos de produto */
+    color: #2c3e50; /* Azul escuro */
     margin-top: 0;
-    font-size: 1.5em;
+    font-size: 1.6em;
+    transition: color 0.5s ease;
 }
 
 .produto p {
-    color: #666; /* Cinza médio para texto do produto padrão */
-    font-size: 0.9em;
+    font-family: 'Roboto', sans-serif; /* Fonte 1 para parágrafos */
+    color: #666; /* Cinza médio */
+    font-size: 0.95em;
+    line-height: 1.5;
+    transition: color 0.5s ease;
 }
 
 .produto strong {
-    color: #000; /* Preto para preço padrão */
-    font-size: 1.2em;
+    font-family: 'Open Sans', sans-serif; /* Fonte 3 para preços */
+    color: #27ae60; /* Verde vibrante */
+    font-size: 1.4em;
+    font-weight: 700;
+    margin-top: 10px;
+    display: block; /* Garante que o preço fique em sua própria linha */
+    transition: color 0.5s ease;
 }
 
-.ag7 { /* Mantida a regra específica para .ag7 se ela tiver um estilo único que não é parte dos produtos gerais */
-    background-color: white;
-    padding: 20px;
-    margin: 15px auto;
-    border-radius: 15px;
-    width: 80%;
-    max-width: 400px;
-    border: 1px solid #ccc;
-    font-family: 'Georgia', serif;
+/* Exemplo de uso de ID para um produto específico com estilo único */
+#produto-destaque {
+    background-color: #e0f7fa; /* Azul claro pastel para destaque */
+    border: 2px solid #00bcd4; /* Borda turquesa */
+    box-shadow: 0 8px 20px rgba(0, 188, 212, 0.2);
 }
 
-.ag7 img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+#produto-destaque:hover {
+    transform: translateY(-10px) scale(1.05) rotateY(5deg); /* Efeito 3D sutil */
+    box-shadow: 0 15px 30px rgba(0, 188, 212, 0.3);
 }
 
 footer {
-    margin-top: 40px;
-    padding: 20px;
-    background-color: #333; /* Cinza escuro para rodapé padrão */
-    color: #fff; /* Texto branco no rodapé padrão */
-    font-size: 0.8em;
+    margin-top: 60px;
+    padding: 25px;
+    background-color: #2c3e50; /* Azul escuro do cabeçalho */
+    color: #ecf0f1; /* Branco suave */
+    font-size: 0.85em;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+    will-change: transform, opacity;
 }
 
----
-
-/* --- Classes de Tema Específicas (Cada uma para uma página) --- */
-
-/* Tema para ag1.html: Azul Acinzentado, Azul e Preto */
-.theme-blue-gray-black body {
-    background-color: #6b8091; /* Azul acinzentado bem claro para o fundo */
-    color: #3f51b5; /* Azul primário para o texto principal */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.theme-blue-gray-black header {
-    background-color: #212121; /* Preto para o cabeçalho */
-    color: #ffffff; /* Texto branco no cabeçalho */
-    border-bottom: 5px solid #424242; /* Um cinza escuro para a borda do cabeçalho */
-    border-radius: 0;
+/* --- Temas de Cores Diferentes (incluindo AG4 e AG7 originais) --- */
+
+/* Tema 2: ag4 (Original) */
+.theme-ag4 body {
+    background-color: #fffacd; /* Amarelo limão claro / Bege */
+    color: #333;
 }
 
-.theme-blue-gray-black h1 {
-    color: #ffffff; /* Título principal em branco para contrastar com o cabeçalho preto */
+.theme-ag4 header {
+    background-color: #87ceeb; /* Azul celeste */
+    color: #fff;
+    border-bottom-color: #ffb6c1; /* Rosa pastel */
 }
 
-.theme-blue-gray-black nav a {
-    color: #90caf9; /* Azul claro para os links da navegação */
+.theme-ag4 h1 {
+    color: #fff;
 }
 
-.theme-blue-gray-black nav a:hover {
-    color: #ffffff; /* Branco no hover dos links para destaque */
+.theme-ag4 nav a {
+    color: #f0f8ff; /* Azul Alice (quase branco) */
 }
 
-.theme-blue-gray-black main h2 {
-    color: #1a237e; /* Azul mais escuro para os títulos de seção */
+.theme-ag4 nav a:hover {
+    color: #ffcccb; /* Rosa mais claro */
 }
 
-.theme-blue-gray-black .produto {
-    background-color: #ffffff; /* Fundo branco para os cards de produto */
-    border: 1px solid #7495a5; /* Borda azul acinzentada clara para os cards */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Sombra um pouco mais forte */
+.theme-ag4 main h2 {
+    color: #ff69b4; /* Rosa choque */
 }
 
-.theme-blue-gray-black .produto h3 {
-    color: #1a237e; /* Azul escuro para o título do produto */
+.theme-ag4 .produto {
+    background-color: #fff;
+    border: 1px solid #f0e68c; /* Cáqui claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-.theme-blue-gray-black .produto p {
-    color: #424242; /* Cinza escuro para o texto do produto */
+.theme-ag4 .produto h3 {
+    color: #dda0dd; /* Ameixa clara */
 }
 
-.theme-blue-gray-black .produto strong {
-    color: #000000; /* Preço em preto para forte destaque */
+.theme-ag4 .produto p {
+    color: #6a5acd; /* Azul ardósia */
 }
 
-.theme-blue-gray-black footer {
-    background-color: #263238; /* Azul acinzentado escuro para o rodapé */
-    color: #eceff1; /* Texto quase branco no rodapé */
+.theme-ag4 .produto strong {
+    color: #ffa07a; /* Salmão claro */
 }
 
----
-
-/* Tema para ag2.html: Branco, Preto e Cinza */
-.theme-light-bw body {
-    background-color: #ffffff; /* Fundo branco para a maior parte */
-    color: #333333; /* Texto principal em cinza escuro */
+.theme-ag4 footer {
+    background-color: #add8e6; /* Azul claro */
+    color: #333;
 }
 
-.theme-light-bw header {
-    background-color: #f8f8f8; /* Um cinza bem clarinho para o cabeçalho */
-    color: #333333; /* Texto do cabeçalho em cinza escuro */
-    border-bottom: 2px solid #dddddd; /* Linha sutil para separar o cabeçalho */
-    border-radius: 0;
+/* Tema 3: ag7 (Original) */
+.theme-ag7 body {
+    background-color: #fff0f5; /* Lavanda avermelhada (para um rosa suave) */
+    color: #333;
 }
 
-.theme-light-bw h1 {
-    color: #222222; /* Título principal em preto */
+.theme-ag7 header {
+    background-color: #dc143c; /* Carmesim (vermelho vibrante) */
+    color: #fff;
+    border-bottom-color: #ff8c00; /* Laranja escuro */
 }
 
-.theme-light-bw nav a {
-    color: #555555; /* Links da navegação em cinza */
+.theme-ag7 h1 {
+    color: #fff;
 }
 
-.theme-light-bw nav a:hover {
-    color: #000000; /* Preto no hover dos links para destaque */
+.theme-ag7 nav a {
+    color: #ffa07a; /* Salmão claro */
 }
 
-.theme-light-bw main h2 {
-    color: #444444; /* Títulos de seção em cinza médio */
+.theme-ag7 nav a:hover {
+    color: #ff6347; /* Tomate (laranja avermelhado) */
 }
 
-.theme-light-bw .produto {
-    background-color: #ffffff; /* Fundo branco para os cards de produto */
-    border: 1px solid #eeeeee; /* Borda bem clara para os cards */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Sombra mais suave */
+.theme-ag7 main h2 {
+    color: #b22222; /* Tijolo de fogo (vermelho escuro) */
 }
 
-.theme-light-bw .produto h3 {
-    color: #222222; /* Título do produto em preto */
+.theme-ag7 .produto {
+    background-color: #fff;
+    border: 1px solid #ffdab9; /* Pêssego esbatido */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Mais brilho */
 }
 
-.theme-light-bw .produto p {
-    color: #666666; /* Texto do produto em cinza */
+.theme-ag7 .produto h3 {
+    color: #cd5c5c; /* Índico claro (vermelho claro) */
 }
 
-.theme-light-bw .produto strong {
-    color: #000000; /* Preço em preto para destaque */
+.theme-ag7 .produto p {
+    color: #696969; /* Cinza dim */
 }
 
-.theme-light-bw footer {
-    background-color: #333333; /* Rodapé em cinza escuro */
-    color: #ffffff; /* Texto do rodapé em branco */
+.theme-ag7 .produto strong {
+    color: #ff4500; /* Laranja vermelho */
 }
 
-/* Adicione mais classes de tema aqui para as outras páginas (ag3, ag4, ag5, ag6, ag7, index) */
-/* Exemplo de um novo tema (você pode criar 5 mais para completar as 8 páginas) */
-.theme-warm-pink body {
-    background-color: #ffe0f0; /* Rosa clarinho */
-    color: #880e4f; /* Rosa escuro */
+.theme-ag7 footer {
+    background-color: #a52a2a; /* Marrom (avermelhado) */
+    color: #ffe4e1;
 }
 
-.theme-warm-pink header {
-    background-color: #ec407a; /* Rosa vibrante */
-    color: #ffffff;
+/* Tema 4: Pôr do Sol Quente (Mantendo um tema novo para ter 4 opções) */
+.theme-por-do-sol body {
+    background-color: #fffaf0; /* Creme suave */
+    color: #444;
 }
-
-.theme-warm-pink nav a {
-    color: #fce4ec;
+.theme-por-do-sol header {
+    background-color: #ef6c00; /* Laranja escuro */
+    color: #fff;
+    border-bottom-color: #d84315; /* Vermelho queimado */
 }
-
-.theme-warm-pink nav a:hover {
-    color: #e91e63;
+.theme-por-do-sol h1 {
+    color: #fff;
 }
-
-.theme-warm-pink main h2 {
-    color: #ad1457;
+.theme-por-do-sol nav a {
+    color: #fff;
 }
-
-.theme-warm-pink .produto {
-    background-color: #ffffff;
-    border: 1px solid #f8bbd0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+.theme-por-do-sol nav a:hover {
+    color: #ffee58; /* Amarelo quente */
 }
-
-.theme-warm-pink .produto h3 {
-    color: #d81b60;
+.theme-por-do-sol h2 {
+    color: #d84315; /* Vermelho queimado */
 }
-
-.theme-warm-pink .produto p {
-    color: #c2185b;
+.theme-por-do-sol .produto {
+    background-color: #fff;
+    box-shadow: 0 6px 15px rgba(239, 108, 0, 0.2);
 }
-
-.theme-warm-pink .produto strong {
-    color: #880e4f;
+.theme-por-do-sol .produto h3 {
+    color: #e53935; /* Vermelho tomate */
 }
-
-.theme-warm-pink footer {
-    background-color: #c2185b;
-    color: #fce4ec;
+.theme-por-do-sol .produto strong {
+    color: #ff8a65; /* Laranja suave */
+}
+.theme-por-do-sol footer {
+    background-color: #ef6c00;
+    color: #fff;
 }
